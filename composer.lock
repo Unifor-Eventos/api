@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a555e63bfc33d23f1bda94d46fec081f",
+    "content-hash": "70ccd9ff86ad72ed5d36a0bfe0b4f697",
     "packages": [
         {
             "name": "brick/math",
@@ -5755,6 +5755,80 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "yajra/laravel-acl",
+            "version": "v11.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yajra/laravel-acl.git",
+                "reference": "37127b9cf4d8da8b53cf26ea8fd4571194190cd2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yajra/laravel-acl/zipball/37127b9cf4d8da8b53cf26ea8fd4571194190cd2",
+                "reference": "37127b9cf4d8da8b53cf26ea8fd4571194190cd2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^11.0",
+                "illuminate/support": "^11.0"
+            },
+            "require-dev": {
+                "larastan/larastan": "^2.9.1",
+                "laravel/pint": "^1.14",
+                "orchestra/testbench": "^9.0",
+                "rector/rector": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "11.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Yajra\\Acl\\AclServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yajra\\Acl\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arjay Angeles",
+                    "email": "aqangeles@gmail.com",
+                    "homepage": "https://yajrabox.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel ACL is a simple role, permission ACL for Laravel Framework.",
+            "homepage": "https://github.com/yajra/laravel-acl",
+            "keywords": [
+                "acl",
+                "laravel",
+                "permissions",
+                "role",
+                "user",
+                "yajra"
+            ],
+            "support": {
+                "issues": "https://github.com/yajra/laravel-acl/issues",
+                "source": "https://github.com/yajra/laravel-acl/tree/v11.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/yajra",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-04-12T02:43:52+00:00"
         }
     ],
     "packages-dev": [
