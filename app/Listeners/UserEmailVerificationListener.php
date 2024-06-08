@@ -23,9 +23,6 @@ class UserEmailVerificationListener
     {
         /* @var \App\Models\User $user */
         $user = $event->user;
-
-        if (!$user->hasRole(UserRole::ORGANIZER)) {
-            $user->update(['status' => UserStatus::ACTIVE]);
-        }
+        $user->update(['status' => UserStatus::ACTIVE]);
     }
 }
