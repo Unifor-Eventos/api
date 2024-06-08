@@ -8,16 +8,17 @@ Route::get('/', function () {
     ];
 });
 
-Route::middleware([
-    'auth:sanctum', 'throttle:api', 'verified'
-])->group(static function (): void {
-    Route::prefix('events')->as('events:')->group(
-        base_path('routes/events.php'),
-    );
-});
+Route::middleware(['auth:sanctum', 'verified'])
+    ->prefix('events')
+    ->group(static function (): void {
+        Route::as('event.')->group(
+            base_path('routes/events.php'),
+        );
+    });
 
-Route::group(static function (): void {
-    Route::prefix('auth')->as('auth:')->group(
-        base_path('routes/auth.php'),
-    );
-});
+Route::prefix('auth')
+    ->group(static function (): void {
+        Route::as('auth.')->group(
+            base_path('routes/auth.php'),
+        );
+    });

@@ -38,6 +38,4 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
     ->name('logout');
 
 Route::middleware(['auth:sanctum', 'verified'])
-    ->get('/me', function (Request $request) {
-        return $request->user();
-    });
+    ->get('/me', fn (Request $request)  => $request->user());
