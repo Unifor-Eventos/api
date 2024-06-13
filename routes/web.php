@@ -16,9 +16,4 @@ Route::middleware(['auth:sanctum', 'verified'])
         );
     });
 
-Route::prefix('auth')
-    ->group(static function (): void {
-        Route::as('auth.')->group(
-            base_path('routes/auth.php'),
-        );
-    });
+require __DIR__ . '/auth.php';

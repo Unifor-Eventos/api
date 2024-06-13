@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('title')->index();
             $table->string('description')->index();
             $table->string('slug')->index();
+            $table->string('banner_url');
             $table->string('is_virtual')->index();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamp('start_at')->index();
             $table->timestamp('finish_at')->index();
             $table->timestamps();

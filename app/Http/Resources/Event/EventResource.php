@@ -5,6 +5,7 @@ namespace App\Http\Resources\Event;
 use App\Http\Resources\DateResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class EventResource extends JsonResource
 {
@@ -19,6 +20,7 @@ class EventResource extends JsonResource
             'title' => $this->resource->title,
             'description' => $this->resource->description,
             'slug' => $this->resource->slug,
+            'banner' => Storage::url($this->resource->banner_url),
             'is_virtual' => $this->resource->is_virtual,
             'start_at' => $this->resource->start_at,
             'finish_at' => $this->resource->finish_at,

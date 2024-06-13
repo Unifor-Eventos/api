@@ -13,7 +13,13 @@ class Event extends Model
     use HasFactory, HasUlids, SoftDeletes;
 
     protected $fillable = [
-        'title', 'slug', 'description', 'is_virtual', 'start_at', 'finish_at'
+        'title', 'slug', 'description', 'banner_url', 'is_virtual', 'user_id', 'start_at', 'finish_at'
+    ];
+
+    protected $cast = [
+        'is_virtual' => 'boolean',
+        'start_at' => 'datetime',
+        'finish_at' => 'datetime'
     ];
 
     public function categories(): BelongsToMany
