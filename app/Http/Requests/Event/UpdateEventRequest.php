@@ -26,6 +26,7 @@ class UpdateEventRequest extends FormRequest
             'description' => 'sometimes|string',
             'is_virtual' => 'sometimes|boolean',
             'start_at' => 'sometimes|date|after:tomorrow',
+            'status' => 'sometimes|in:ongoing,finished',
             'finish_at' => 'sometimes|date|after:start_at',
             'banner' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];

@@ -14,7 +14,7 @@ class Event extends Model
     use HasFactory, HasUlids, SoftDeletes;
 
     protected $fillable = [
-        'title', 'slug', 'description', 'banner_url', 'is_virtual', 'user_id', 'start_at', 'finish_at'
+        'title', 'slug', 'description', 'status', 'banner_url', 'is_virtual', 'user_id', 'start_at', 'finish_at'
     ];
 
     protected $cast = [

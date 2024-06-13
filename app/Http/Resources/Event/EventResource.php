@@ -24,6 +24,7 @@ class EventResource extends JsonResource
             'slug' => $this->resource->slug,
             'banner' => Storage::url($this->resource->banner_url),
             'organizer' => UserResource::make($this->resource->organizer),
+            'status' => $this->status,
             'is_virtual' => $this->resource->is_virtual,
             'start_at' => $this->resource->start_at,
             'finish_at' => $this->resource->finish_at,
