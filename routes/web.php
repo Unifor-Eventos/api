@@ -8,12 +8,5 @@ Route::get('/', function () {
     ];
 });
 
-Route::middleware(['auth:sanctum', 'verified'])
-    ->prefix('events')
-    ->group(static function (): void {
-        Route::as('event.')->group(
-            base_path('routes/events.php'),
-        );
-    });
-
+require __DIR__ . '/events.php';
 require __DIR__ . '/auth.php';

@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Event;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Event\CreateEventRequest;
+use App\Http\Requests\Event\EnrollRequest;
+use App\Http\Requests\Event\UpdateBannerRequest;
 use App\Http\Requests\Event\UpdateEventRequest; // Assumindo que você criou este request para validar atualizações
 use App\Http\Resources\Event\EventResource;
 use App\Http\Responses\CollectionResponse;
+use App\Http\Responses\MessageResponse;
 use App\Http\Responses\ModelResponse;
 use App\Models\Event;
 use Illuminate\Http\Request;
@@ -22,7 +25,7 @@ class EventController extends Controller
     public function index(Request $request)
     {
         $perPage = $request->input('per_page', 10);
-        $events = Event::query()->paginate($perPage);
+        $events = Event::query()->with('organizer')->paginate($perPage);
 
         return new CollectionResponse(
             data: EventResource::collection($events),
@@ -78,6 +81,17 @@ class EventController extends Controller
             $data['slug'] = Str::slug($data['title']);
         }
 
+        $event->update($data);
+
+        return new ModelResponse(
+            data: EventResource::make($event),
+            status: Status::OK
+        );
+    }
+
+    public function updateBanner(UpdateBannerRequest $request, string $id)
+    {
+        $event = Event::findOrFail($id);
         if ($request->hasFile('banner')) {
             if ($event->banner_url) {
                 Storage::disk('public')->delete($event->banner_url);

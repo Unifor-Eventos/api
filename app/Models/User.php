@@ -34,6 +34,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'remember_token',
     ];
 
+    protected $with = [
+        'roles'
+    ];
+
     /**
      * Get the attributes that should be cast.
      *
@@ -46,10 +50,6 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
-
-    protected $with = [
-        'roles'
-    ];
 
     public function events(): HasMany
     {
